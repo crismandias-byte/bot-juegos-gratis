@@ -132,7 +132,8 @@ async def enviar_alerta(canal, plataforma, titulo, url, unique_id):
 # === EVENTO DE CHAT CON IA ===
 @bot.event
 async def on_message(message):
-    if message.author == bot.user: return
+    if message.author == bot.user: 
+        return
 
     if bot.user.mentioned_in(message) or isinstance(message.channel, discord.DMChannel):
         contexto_ia = (
@@ -154,6 +155,7 @@ async def on_message(message):
             except Exception as e:
                 print(f"❌ ERROR REAL DE GEMINI: {e}")
                 await message.reply("Me dio un lag mental con la IA. Volvé a intentar.")
+
     await bot.process_commands(message)
 
 @bot.event
