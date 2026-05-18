@@ -21,7 +21,7 @@ def keep_alive(): Thread(target=run).start()
 
 # === CONFIGURACIÓN DISCORD ===
 TOKEN = os.environ.get('DISCORD_TOKEN')
-CANAL_ID = 123456789012345678  # Reemplazá con tu ID de canal de Discord
+CANAL_ID = 1505367783804895375  # Reemplazá con tu ID de canal de Discord
 
 intents = discord.Intents.default()
 intents.message_content = True
