@@ -161,6 +161,13 @@ async def on_message(message):
 @bot.event
 async def on_ready():
     print(f'✅ Bot Multi-Fuente conectado como {bot.user}')
+    
+    # === ESTO HACE QUE AVISE EN TU CANAL DE DISCORD ===
+    canal = bot.get_channel(CANAL_ID)
+    if canal:
+        await canal.send("🚀 **¡Cazador de Ofertas Online!** Acabo de despertarme en la nube y ya arranco a patrullar las tiendas. ¡Hablame si necesitás algo!")
+    # ==================================================
+    
     revisar_ofertas.start()
     keep_alive()
 
