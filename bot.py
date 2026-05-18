@@ -152,7 +152,8 @@ async def on_message(message):
                 respuesta = model.generate_content(prompt)
                 await message.reply(respuesta.text)
             except Exception as e:
-                await message.reply("Me dio un lag mental con la IA. Volvé a intentar.")
+            print(f"❌ ERROR REAL DE GEMINI: {e}")  # <--- AGREGÁ ESTA LÍNEA ACÁ
+            await message.reply("Me dio un lag mental con la IA. Volvé a intentar.")
 
     await bot.process_commands(message)
 
