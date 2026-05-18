@@ -46,7 +46,12 @@ def es_juego_completo(titulo):
 async def revisar_ofertas():
     global ultima_conexion_repositorios, juegos_actuales_en_oferta
     canal = bot.get_channel(CANAL_ID)
-    if not canal: return
+    
+    # Si el canal no existe, ahora el bot dejará registro para que la IA lo sepa
+    if not canal:
+        print(f"❌ ERROR CRÍTICO: No se encontró el canal con ID {CANAL_ID}. El escaneo automático se canceló.")
+        ultima_conexion_repositorios = "Fallida: El ID del canal de Discord (`CANAL_ID`) es incorrecto o el bot no tiene permisos para escribir ahí."
+        return
 
     nuevas_tiendas_revisadas = []
     headers = {'User-Agent': 'FreeGameSearcherAPP v4.0'}
